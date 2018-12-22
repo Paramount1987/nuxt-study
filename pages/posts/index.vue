@@ -1,6 +1,6 @@
 <template>
   <div class="posts-page">
-
+    <nuxt-link to="/posts/2">Posts 1</nuxt-link>
   </div>
 </template>
 
