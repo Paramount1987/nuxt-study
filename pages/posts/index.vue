@@ -1,8 +1,18 @@
 <template>
   <div class="posts-page">
-    <nuxt-link to="/posts/2">Posts 1</nuxt-link>
+    <PostList />
   </div>
 </template>
+
+<script>
+import PostList from '@/components/Posts/PostList'
+
+export default {
+  components: {
+    PostList
+  }
+}
+</script>
 
 <style scoped>
 .posts-page {
