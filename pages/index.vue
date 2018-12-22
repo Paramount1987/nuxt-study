@@ -4,37 +4,36 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background-image: url(https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/46884614_1384686148334577_4282906027105452032_n.jpg?_nc_cat=109&_nc_ht=scontent.fhrk1-1.fna&oh=6bf69c6419ab415dfb8c6aa839414d74&oe=5C9032FA)"
-          />
-          <div class="post-content">
-            <h2>Post Title</h2>
-            <p>Text preview</p>
-          </div>
-        </article>
-      </nuxt-link>
-
-      <nuxt-link :to="'/posts/' + 2" class="post-preview">
-        <article>
-          <div
-            class="post-thumbnail"
-            style="background-image: url(https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/38935487_1307290946074098_9049361952253411328_n.jpg?_nc_cat=101&_nc_ht=scontent.fhrk1-1.fna&oh=2a5d142ba04c6b298f1721973bfd3b59&oe=5C914B8C)"
-          />
-          <div class="post-content">
-            <h2>Post Title 2</h2>
-            <p>Text preview 2</p>
-          </div>
-        </article>
-      </nuxt-link>
+      <PostPreview
+        id="1"
+        title="Title 1"
+        previewText="preview text 1"
+        thumbnail="https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/46884614_1384686148334577_4282906027105452032_n.jpg?_nc_cat=109&_nc_ht=scontent.fhrk1-1.fna&oh=6bf69c6419ab415dfb8c6aa839414d74&oe=5C9032FA"
+      />
+      <PostPreview
+        id="2"
+        title="Title 2"
+        previewText="preview text 2"
+        thumbnail="https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/46884614_1384686148334577_4282906027105452032_n.jpg?_nc_cat=109&_nc_ht=scontent.fhrk1-1.fna&oh=6bf69c6419ab415dfb8c6aa839414d74&oe=5C9032FA"
+      />
+      <PostPreview
+        id="3"
+        title="Title 3"
+        previewText="preview text 3"
+        thumbnail="https://scontent.fhrk1-1.fna.fbcdn.net/v/t1.0-9/46884614_1384686148334577_4282906027105452032_n.jpg?_nc_cat=109&_nc_ht=scontent.fhrk1-1.fna&oh=6bf69c6419ab415dfb8c6aa839414d74&oe=5C9032FA"
+      />
     </section>
   </div>
 </template>
 
 <script>
-export default {};
+import PostPreview from "@/components/Posts/PostPreview";
+
+export default {
+  components: {
+    PostPreview
+  }
+};
 </script>
 
 <style scoped>
@@ -75,41 +74,5 @@ export default {};
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-}
-
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
-
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
 }
 </style>
