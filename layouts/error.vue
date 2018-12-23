@@ -1,13 +1,22 @@
 <template>
-  <div class="container">
-    <h1 v-if="error.statusCode === 404">Страница не найдена</h1>
-    <h1 v-else>Произошла ошибка</h1>
-    <nuxt-link to="/">Вернуться на главную</nuxt-link>
+  <div class="error-page">
+    <h1>Oops, something went wrong!</h1>
+    <p>Back to <a href="/">safety</a>!</p>
   </div>
 </template>
 
-<script>
-export default {
-  props: ['error']
+<style scoped>
+.error-page {
+  text-align: center;
 }
-</script>
+
+.error-page a {
+  text-decoration: none;
+  color: red;
+}
+
+.error-page a:hover,
+.error-page a:active {
+  color: salmon;
+}
+</style>
