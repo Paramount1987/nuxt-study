@@ -11,10 +11,10 @@ export default {
   components: {
     PostList
   },
-    asyncData(context, callback) {
+  asyncData(context, callback) {
     console.log('asyncData context:', context);
     setTimeout(() => {
-      callback(new Error(), {
+      callback(null, {
         loadedPosts: [
           {
             id: "1",
@@ -33,6 +33,9 @@ export default {
         ]
       });
     }, 1000);
+  },
+  created() {
+    this.$store.dispatch('setPosts', this.loadedPosts)
   }
 }
 </script>
