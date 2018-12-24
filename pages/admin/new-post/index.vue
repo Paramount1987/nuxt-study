@@ -23,7 +23,9 @@ export default {
           ...postData,
           updatedDate: new Date()
         })
-        .then(res => console.log('res', res))
+        .then(res => {
+          this.$router.push('/admin')
+        })
         .catch(e => console.log('err', e))
     }
   }
