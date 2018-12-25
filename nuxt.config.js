@@ -53,5 +53,10 @@ module.exports = {
     extend(config, ctx) {
 
     }
+  },
+
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
