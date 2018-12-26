@@ -9,39 +9,47 @@
           type="button"
           btn-style="inverted"
           style="margin-left: 10px"
-          @click="isLogin = !isLogin">Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
+          @click="isLogin = !isLogin"
+        >Switch to {{ isLogin ? 'Signup' : 'Login' }}</AppButton>
       </form>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 
 export default {
-  name: 'AdminAuthPage',
-  layout: 'admin',
+  name: "AdminAuthPage",
+  layout: "admin",
   data() {
     return {
       isLogin: true,
-      email: '',
-      password: '',
-    }
+      email: "",
+      password: ""
+    };
   },
 
   methods: {
     onSubmit() {
-      axios.post(`https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.fbAPIKey}`,
-        {
-          email: this.email,
-          password: this.password,
-          returnSecureToken: true,
-        })
-        .then(result => console.log('resut', result))
-        .catch(e => console.log('error', e))
+      let authURL = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.fbAPIKey}`
+      if (!this.isLogin) {
+        authURL = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.fbAPIKey}`
+      }
+
+      axios
+        .post(authURL,
+          {
+            email: this.email,
+            password: this.password,
+            returnSecureToken: true
+          }
+        )
+        .then(result => console.log("resut", result))
+        .catch(e => console.log("error", e));
     }
   }
-}
+};
 </script>
 
 <style scoped>
