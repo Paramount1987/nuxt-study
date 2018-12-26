@@ -32,21 +32,14 @@ export default {
 
   methods: {
     onSubmit() {
-      let authURL = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.fbAPIKey}`
-      if (!this.isLogin) {
-        authURL = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.fbAPIKey}`
-      }
-
-      axios
-        .post(authURL,
-          {
-            email: this.email,
-            password: this.password,
-            returnSecureToken: true
-          }
-        )
-        .then(result => console.log("resut", result))
-        .catch(e => console.log("error", e));
+      this.$store.dispatch('authenticatedUser', {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password
+      })
+      .then(() => {
+        this.$router.push('/admin');
+      });
     }
   }
 };
